@@ -1,0 +1,56 @@
+{% load staticfiles %}
+<html>
+  <head>
+
+    <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.min.css' %}"  media="screen" />
+    <link href="{% static 'css/Myapp.css' %}" rel="stylesheet" media="screen">
+
+    <title>{% block title %}Mobile Application Review Miner By Chetan Pawar and Viral Sanghavi{% endblock %}</title>
+  </head>
+
+  <body>
+    <div class="container">
+        <nav class="navbar navbar-fixed-top navbar-inverse" role="navigation">
+            <div class="container">
+
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+                      <span class="sr-only">Toggle navigation</span>
+                      <span class="icon-bar"></span>
+                      <span class="icon-bar"></span>
+                      <span class="icon-bar"></span>
+                    </button>
+                    <div id="branding">
+                    {% block branding %}{% endblock %}
+
+                    </div>
+                </div>
+
+                <div id="navbar"  class="navbar-collapse collapse">
+                    <ul class="nav nav-pills">
+                        {% block nav-home %}<li id="liHome"><a href="{% url 'ReviewMiner:home'%}">Home</a></li>{% endblock %}
+                        {% block nav-output %}<li id="liOutput"><a href="{% url 'ReviewMiner:output'%}">Output</a></li>{% endblock %}
+                        {% block nav-about %}<li id="liAboutUs"><a href="{% url 'ReviewMiner:about'%}">About Review Miner</a></li>{% endblock %}
+                    </ul>
+                </div>
+
+             </div>
+        </nav>
+    </div>
+
+
+    <div class="container">
+    {% block content %}
+    {% endblock %}
+    </div>
+
+    <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'js/layout.js' %}"></script>
+    <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+    <script> categoryLength = {{ totalList.2 }};
+    </script>
+
+  </body>
+</html>

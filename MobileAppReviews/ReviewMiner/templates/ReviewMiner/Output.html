@@ -1,0 +1,174 @@
+{% extends "ReviewMiner/Layout.html" %}
+
+{% block branding %}
+    <a class="navbar-brand" href="{% url 'ReviewMiner:home'%}">Mobile Application Reviews Mining</a>
+{% endblock %}
+
+{% block nav-output %}
+    <li id="liOutput" class="active"><a href="#">Output</a></li>
+{% endblock %}
+
+
+
+
+{% block content %}
+        <div class="page-header">
+        <h1>App Review Mining Output</h1>
+        </div>
+        <a href="{% url 'ReviewMiner:home'%}" class="btn pull-right" role="button">Try Again</a>
+
+        <div id="criteria_links" class="nav-container criteria_links" style="float: left; height: auto">
+            <ul class="nav navbar-right">
+
+                <li id="criteria_all_reviews"><a onclick='changeSelection("all_reviews");' href="#">All  Categories</a></li><br/>
+                <li id="criteria_Performance"><a onclick='changeSelection("Performance");' href="#">Performance</a></li><br/>
+                <li id="criteria_UserInterface"><a onclick='changeSelection("UserInterface");' href="#">User Interface</a></li><br/>
+                <li id="criteria_Compatibility"><a onclick='changeSelection("Compatibility");' href="#">Compatibility</a></li><br/>
+                <li id="criteria_General"><a onclick='changeSelection("General");' href="#">General</a></li><br/>
+                <li id="criteria_Request"><a onclick='changeSelection("Request");' href="#">Request</a></li><br/>
+
+            </ul>
+        </div>
+
+         <div id="all_review_buttons">
+            <button id='text_view' onclick='changeView("text");' class="btn text-button" role="button">Text</button>
+            <button id='graph_view' onclick='changeView("graph");'class="btn graph-button" role="button">Graph</button>
+         </div>
+         <div id="after_review_buttons"></div>
+        {% for reviewCategoryList in totalList.0 %}
+
+
+            <div id="{{reviewCategoryList.1}}" class="col-xs-10 review_table">
+                <table class="table" style="width:100%">
+                    <col width="100">
+                    <col width="10">
+                    <col width="100">
+                    <col width="600">
+                    <thead>
+                      <tr>
+
+                        <th>Date</th>
+                        <th>Rating</th>
+                        <th>Title</th>
+                        <th>Review</th>
+                      </tr>
+                    </thead>
+
+
+                    {%   for reviewList in reviewCategoryList.0 %}
+
+
+
+                    <tbody>
+                      <tr>
+                        <td>{{  reviewList.0.0 }}</td>
+                        <td>{{  reviewList.0.1 }}</td>
+
+                        <td>
+                          {%  for titleWord in reviewList.0.2 %}
+                                {% if reviewList.3 %}
+
+                                        {% if titleWord in reviewList.3 %}
+                                                <b>{{titleWord}}</b>
+                                        {% else %}
+                                                {{titleWord}}
+                                        {% endif %}
+                                {% else %}
+                                     {{titleWord}}
+                                {% endif %}
+                          {% endfor %}
+                        </td>
+                        <td>
+
+                            {% if reviewList.2 %}
+
+
+
+                                    {% for reviewWord in reviewList.0.3 %}
+
+                                        {% if reviewList.1 == 'Request' %}
+
+
+
+                                            {% if reviewWord in reviewList.5%}
+                                                <b>{{reviewWord}}</b>
+                                            {% else %}
+                                                  {{reviewWord}}
+                                            {% endif %}
+
+
+                                         {%  else %}
+
+                                            {% if reviewWord in reviewList.2%}
+                                                <b>{{reviewWord}}</b>
+                                            {% else %}
+                                                {{reviewWord}}
+                                            {% endif %}
+                                        {% endif %}
+                                    {%  endfor %}
+
+
+                            {% else %}
+                                    {% for reviewWord in reviewList.0.3 %}
+                                            {{reviewWord}}
+                                    {% endfor %}
+                            {% endif %}
+
+
+                        </td>
+                      </tr>
+                    </tbody>
+
+                    {% endfor %}
+
+                 </table>
+
+            </div>
+
+        {% endfor %}
+
+
+        <div id="all_reviews" class="col-xs-10 col-sm-14 review_table">
+            <table class="table" style="width:100%">
+                <col width="100">
+                <col width="10">
+                <col width="100">
+                <col width="600">
+                <thead>
+                  <tr>
+
+                    <th>Date</th>
+                    <th>Rating</th>
+                    <th>Title</th>
+                    <th>Review</th>
+                  </tr>
+                </thead>
+
+                <tbody>
+                    {% for reviewCategoryList in totalList.1 %}
+                          <tr>
+                            <td>{{  reviewCategoryList.0.0 }}</td>
+                            <td>{{  reviewCategoryList.0.1 }}</td>
+
+                            <td>
+                           {% for titleWord in reviewCategoryList.0.2 %}
+                            {{  titleWord }}
+                           {% endfor %}
+                            </td>
+
+                             <td>
+                           {% for reviewWord in reviewCategoryList.0.3 %}
+                            {{  reviewWord }}
+                           {% endfor %}
+                            </td>
+
+                          </tr>
+                    {% endfor %}
+                </tbody>
+
+            </table>
+        </div>
+
+
+
+{% endblock %}

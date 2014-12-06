@@ -1,0 +1,24 @@
+-	Introduction:
+With increasing competition in mobile marketplace, developers are working on getting their application better. They can improve on their apps by using the wide source of information they get in terms of user reviews about their application. But main problem for developers is to filter out helpful & relevant reviews from the large pool of user reviews. With information mining based on filtering algorithms we can output the most constructive reviews to aid developer in improving the quality of their product.
+
+-	Project Summary
+Objective of this project is to assist the mobile app developers in improving the quality of their application by providing them with most helpful user reviews. This will expedite the process of getting informative feedbacks from application users and to work on quality improvement.
+
+-	Project Details:
+1.	Implementation Issues and challenges:
+•	Reading reviews from app marketplaces such as Apple app store, Google play.
+•	Developing algorithms to filter out informative reviews.
+•	Categorizing the reviews
+•	To represent output i.e. informative reviews to developer intuitively.
+2.	Deliverables:
+Expected output of this project is a tool which will let mobile app developer to choose an application for which reviews to be searched, choose the quality improvement areas (fixed list currently) for which reviews to be filtered out and on the click of search button developer will get the list of all relevant reviews related to application he has selected and areas of improvement he mentioned.
+
+-	Conclusion:
+In order to utilize the customer feedback more efficiently, mobile app developers must get all the relevant informative reviews from the large pool of reviews available marketplace. This project will assist mobile app developers to find such informative reviews efficiently based on areas of improvements and their related keywords in the reviews. This will expedite the process of valuable customer feedback and thus the quality improvement in the software design life cycle.
+
+-	References
+1.	Why People Hate Your App — Making Sense of User Feedback in a Mobile App Store
+KDD’13, August 11–14, 2013, Chicago, Illinois, USA
+
+2.	AR-Miner: Mining Informative Reviews for Developers from Mobile App Marketplace 
+ICSE ’14, May 31-June 7, 2014, Hyderabad, India

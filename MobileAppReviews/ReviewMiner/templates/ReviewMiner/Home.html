@@ -1,0 +1,52 @@
+{% extends "ReviewMiner/Layout.html" %}
+
+
+{% block branding %}
+    <a class="navbar-brand" href="{% url 'ReviewMiner:home'%}">Mobile Application Reviews Mining</a>
+{% endblock %}
+
+{% block nav-home %}
+    <li id="liHome" class="active"><a href="#">Home</a></li>
+{% endblock %}
+
+{% block nav-output %}{% endblock %}
+
+
+{% block content %}
+    <div class="container theme-showcase" role="main">
+        <div class="page-header">
+        <h1>App Review Miner</h1>
+        </div>
+        <div class = "well">
+            <p>With increasing competition in mobile marketplace, developers are working on getting their
+                application better and serve it's users. They can improve on their apps by using the wide
+                source of information they get in terms of user reviews about their application.
+                But main problem for developers is to filter out helpful & relevant reviews from the large pool
+                of user reviews. With careful analysis of each review, we can output the most constructive and
+                helpful reviews to aid developer in improving the quality of their product. This project will
+                help them in working on the different characteristics of their application based on whatever
+                feedback is given by user for their application.</p>
+            <p><a href="{% url 'ReviewMiner:about'%}" class="btn btn-primary btn-lg" role="button">Read more &raquo;</a></p>
+        </div>
+
+
+        <form action="{% url 'ReviewMiner:output'%}" method="post" enctype="multipart/form-data">
+
+        <div><span> Check for reviews having rating </span>
+        <select  name="rating" required>
+                <option value="5">5</option>
+                <option value="4">4</option>
+                <option value="3" selected>3</option>
+                <option value="2">2</option>
+                <option value="1">1</option>
+        </select> <span> and below </span>
+        </div></br>
+
+             {% csrf_token %}
+
+            <input id="uploadbutton" type="file" required="true" class="btn btn-sm btn-default" value="Browse" name="file" accept="csv" />
+            <br />
+            <input type="submit" value="See output" class="btn btn-primary" />
+        </form>
+    </div>
+{% endblock %}

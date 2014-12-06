@@ -1,0 +1,5 @@
+Django==1.7.1
+nltk==3.0.0
+numpy==1.8.1
+whitenoise==1.0.5
+xlrd==0.9.3
