@@ -4,6 +4,7 @@
 
 With increasing competition in mobile marketplace, developers are working on getting their application better.
 Every application in mobile application store gets hundreds of reviews. Some of them are really good praising the application. But some of them are low rated reviews which signifies any improvements needed in this application or any suggestions from the user that they would like to have improved. Sometimes developer may encounter with very short and irrelevant reviews. As the number of reviews increases, it becomes difficult for developer to sort out the most helpful reviews from this large corpus. Their main task is to filter out the most helpful and informative reviews and categorize them according to different areas of improvements like performance, stability, compatibility with multiple devices, user interface etc. Objective of this application is to assist the mobile app developers in categorizing the reviews into different areas of improvements. This will expedite the process of getting informative feedbacks from application users and to work on quality improvement of their application.
+Working version of this website is uploaded on heroku on this [link](http://appreviewminer.herokuapp.com/reviewminer/)
 
 ##Features
 
